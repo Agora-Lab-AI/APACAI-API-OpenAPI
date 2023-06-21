@@ -17,3 +17,15 @@ $ python scripts/generate_sdk.py -s node -o ~/apacai-node
 - The `operationId` of each operation is used as the function name for that operation
 - The `tag` determines the name of the Javascript class that contains that operation
 - `schema` names map to Typescript type names
+
+
+
+### Roadmap
+
+* Deploy whisperx
+
+* Deploy Pegasus embedding moddel that can accept images, videos, sensor data, and so on
+
+* Deploy Kosmos-X 
+
+* Deploy Andromeda
