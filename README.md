@@ -32,4 +32,4 @@ $ python scripts/generate_sdk.py -s node -o ~/apacai-node
 
 * Deploy PALM-E
 
-* Generate Developer Platform with the same principles as [OPEN AI's](https://beta.openai.com)
+* Generate Developer Platform with the same principles as [OPEN AI's](https://beta.openai.com) with documentation and examples
