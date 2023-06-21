@@ -730,7 +730,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OpenAIFile'
+                $ref: '#/components/schemas/ApacAIFile'
       x-oaiMeta:
         name: Upload file
         group: files
@@ -835,7 +835,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OpenAIFile'
+                $ref: '#/components/schemas/ApacAIFile'
       x-oaiMeta:
         name: Retrieve file
         group: files
@@ -2460,7 +2460,7 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/OpenAIFile'
+            $ref: '#/components/schemas/ApacAIFile'
       required: 
         - object
         - data
@@ -2871,8 +2871,8 @@ components:
         - created
         - owned_by
 
-    OpenAIFile:
-      title: OpenAIFile
+    ApacAIFile:
+      title: ApacAIFile
       properties:
         id:
           type: string
@@ -2924,15 +2924,15 @@ components:
         training_files:
           type: array
           items:
-            $ref: '#/components/schemas/OpenAIFile'
+            $ref: '#/components/schemas/ApacAIFile'
         validation_files:
           type: array
           items:
-            $ref: '#/components/schemas/OpenAIFile'
+            $ref: '#/components/schemas/ApacAIFile'
         result_files:
           type: array
           items:
-            $ref: '#/components/schemas/OpenAIFile'
+            $ref: '#/components/schemas/ApacAIFile'
         events:
           type: array
           items:
