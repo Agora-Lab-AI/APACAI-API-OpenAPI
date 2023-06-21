@@ -29,3 +29,7 @@ $ python scripts/generate_sdk.py -s node -o ~/apacai-node
 * Deploy Kosmos-X 
 
 * Deploy Andromeda
+
+* Deploy PALM-E
+
+* Generate Developer Platform with the same principles as [OPEN AI's](https://beta.openai.com)
