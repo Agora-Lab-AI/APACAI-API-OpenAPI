@@ -38,7 +38,7 @@ paths:
           curl: |
             curl https://api.apacai.com/v1/chat/creations \
               -H "Content-Type: application/json" \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -H "Authorization: Bearer $APACAI_API_KEY" \
               -d '{
                 "model": "gpt-3.5-turbo",
                 "messages": [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "Hello!"}]
@@ -46,7 +46,7 @@ paths:
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
 
             creation = apacai.ChatCreation.create(
               model="gpt-3.5-turbo",
@@ -61,7 +61,7 @@ paths:
             const { Configuration, ApacAIApi } = require("apacai");
 
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
 
@@ -121,7 +121,7 @@ paths:
           curl: |
             curl https://api.apacai.com/v1/creations \
               -H "Content-Type: application/json" \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -H "Authorization: Bearer $APACAI_API_KEY" \
               -d '{
                 "model": "VAR_model_id",
                 "prompt": "Say this is a test",
@@ -131,7 +131,7 @@ paths:
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.Completion.create(
               model="VAR_model_id",
               prompt="Say this is a test",
@@ -141,7 +141,7 @@ paths:
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.createCompletion({
@@ -209,7 +209,7 @@ paths:
           curl: |
             curl https://api.apacai.com/v1/edits \
               -H "Content-Type: application/json" \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -H "Authorization: Bearer $APACAI_API_KEY" \
               -d '{
                 "model": "VAR_model_id",
                 "input": "What day of the wek is it?",
@@ -218,7 +218,7 @@ paths:
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.Edit.create(
               model="VAR_model_id",
               input="What day of the wek is it?",
@@ -227,7 +227,7 @@ paths:
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.createEdit({
@@ -286,7 +286,7 @@ paths:
           curl: |
             curl https://api.apacai.com/v1/images/generations \
               -H "Content-Type: application/json" \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -H "Authorization: Bearer $APACAI_API_KEY" \
               -d '{
                 "prompt": "A cute baby sea otter",
                 "n": 2,
@@ -295,7 +295,7 @@ paths:
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.Image.create(
               prompt="A cute baby sea otter",
               n=2,
@@ -304,7 +304,7 @@ paths:
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.createImage({
@@ -358,7 +358,7 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/images/edits \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -H "Authorization: Bearer $APACAI_API_KEY" \
               -F image="@otter.png" \
               -F mask="@mask.png" \
               -F prompt="A cute baby sea otter wearing a beret" \
@@ -367,7 +367,7 @@ paths:
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.Image.create_edit(
               image=open("otter.png", "rb"),
               mask=open("mask.png", "rb"),
@@ -378,7 +378,7 @@ paths:
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.createImageEdit(
@@ -428,14 +428,14 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/images/variations \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -H "Authorization: Bearer $APACAI_API_KEY" \
               -F image="@otter.png" \
               -F n=2 \
               -F size="1024x1024"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.Image.create_variation(
               image=open("otter.png", "rb"),
               n=2,
@@ -444,7 +444,7 @@ paths:
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.createImageVariation(
@@ -491,7 +491,7 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/embeddings \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -H "Authorization: Bearer $APACAI_API_KEY" \
               -H "Content-Type: application/json" \
               -d '{
                 "input": "The food was delicious and the waiter...",
@@ -500,7 +500,7 @@ paths:
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.Embedding.create(
               model="text-embedding-ada-002",
               input="The food was delicious and the waiter..."
@@ -508,7 +508,7 @@ paths:
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.createEmbedding({
@@ -569,20 +569,20 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/audio/transcriptions \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -H "Authorization: Bearer $APACAI_API_KEY" \
               -H "Content-Type: multipart/form-data" \
               -F file="@/path/to/file/audio.mp3" \
               -F model="whisper-1"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             audio_file = open("audio.mp3", "rb")
             transcript = apacai.Audio.transcribe("whisper-1", audio_file)
           node: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const resp = await apacai.createTranscription(
@@ -626,20 +626,20 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/audio/translations \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -H "Authorization: Bearer $APACAI_API_KEY" \
               -H "Content-Type: multipart/form-data" \
               -F file="@/path/to/file/german.m4a" \
               -F model="whisper-1"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             audio_file = open("german.m4a", "rb")
             transcript = apacai.Audio.translate("whisper-1", audio_file)
           node: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const resp = await apacai.createTranslation(
@@ -676,16 +676,16 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/files \
-              -H "Authorization: Bearer $OPENAI_API_KEY"
+              -H "Authorization: Bearer $APACAI_API_KEY"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.File.list()
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.listFiles();
@@ -738,13 +738,13 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/files \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -H "Authorization: Bearer $APACAI_API_KEY" \
               -F purpose="fine-tune" \
               -F file="@mydata.jsonl"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.File.create(
               file=open("mydata.jsonl", "rb"),
               purpose='fine-tune'
@@ -753,7 +753,7 @@ paths:
             const fs = require("fs");
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.createFile(
@@ -798,16 +798,16 @@ paths:
           curl: |
             curl https://api.apacai.com/v1/files/file-XjGxS3KTG0uNmNOK362iJua3 \
               -X DELETE \
-              -H "Authorization: Bearer $OPENAI_API_KEY"
+              -H "Authorization: Bearer $APACAI_API_KEY"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.File.delete("file-XjGxS3KTG0uNmNOK362iJua3")
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.deleteFile("file-XjGxS3KTG0uNmNOK362iJua3");
@@ -843,16 +843,16 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/files/file-XjGxS3KTG0uNmNOK362iJua3 \
-              -H "Authorization: Bearer $OPENAI_API_KEY"
+              -H "Authorization: Bearer $APACAI_API_KEY"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.File.retrieve("file-XjGxS3KTG0uNmNOK362iJua3")
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.retrieveFile("file-XjGxS3KTG0uNmNOK362iJua3");
@@ -893,16 +893,16 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/files/file-XjGxS3KTG0uNmNOK362iJua3/content \
-              -H "Authorization: Bearer $OPENAI_API_KEY" > file.jsonl
+              -H "Authorization: Bearer $APACAI_API_KEY" > file.jsonl
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             content = apacai.File.download("file-XjGxS3KTG0uNmNOK362iJua3")
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.downloadFile("file-XjGxS3KTG0uNmNOK362iJua3");
@@ -939,19 +939,19 @@ paths:
           curl: |
             curl https://api.apacai.com/v1/fine-tunes \
               -H "Content-Type: application/json" \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -H "Authorization: Bearer $APACAI_API_KEY" \
               -d '{
                 "training_file": "file-XGinujblHPwGLSztz8cPS8XY"
               }'
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.FineTune.create(training_file="file-XGinujblHPwGLSztz8cPS8XY")
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.createFineTune({
@@ -1014,16 +1014,16 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/fine-tunes \
-              -H "Authorization: Bearer $OPENAI_API_KEY"
+              -H "Authorization: Bearer $APACAI_API_KEY"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.FineTune.list()
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.listFineTunes();
@@ -1083,16 +1083,16 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/fine-tunes/ft-AF1WoRqd3aJAHsqc9NY7iL8F \
-              -H "Authorization: Bearer $OPENAI_API_KEY"
+              -H "Authorization: Bearer $APACAI_API_KEY"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.FineTune.retrieve(id="ft-AF1WoRqd3aJAHsqc9NY7iL8F")
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.retrieveFineTune("ft-AF1WoRqd3aJAHsqc9NY7iL8F");
@@ -1198,16 +1198,16 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/fine-tunes/ft-AF1WoRqd3aJAHsqc9NY7iL8F/cancel \
-              -H "Authorization: Bearer $OPENAI_API_KEY"
+              -H "Authorization: Bearer $APACAI_API_KEY"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.FineTune.cancel(id="ft-AF1WoRqd3aJAHsqc9NY7iL8F")
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.cancelFineTune("ft-AF1WoRqd3aJAHsqc9NY7iL8F");
@@ -1283,16 +1283,16 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/fine-tunes/ft-AF1WoRqd3aJAHsqc9NY7iL8F/events \
-              -H "Authorization: Bearer $OPENAI_API_KEY"
+              -H "Authorization: Bearer $APACAI_API_KEY"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.FineTune.list_events(id="ft-AF1WoRqd3aJAHsqc9NY7iL8F")
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.listFineTuneEvents("ft-AF1WoRqd3aJAHsqc9NY7iL8F");
@@ -1353,16 +1353,16 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/models \
-              -H "Authorization: Bearer $OPENAI_API_KEY"
+              -H "Authorization: Bearer $APACAI_API_KEY"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.Model.list()
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.listModels();
@@ -1422,16 +1422,16 @@ paths:
         examples:
           curl: |
             curl https://api.apacai.com/v1/models/VAR_model_id \
-              -H "Authorization: Bearer $OPENAI_API_KEY"
+              -H "Authorization: Bearer $APACAI_API_KEY"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.Model.retrieve("VAR_model_id")
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.retrieveModel("VAR_model_id");
@@ -1470,16 +1470,16 @@ paths:
           curl: |
             curl https://api.apacai.com/v1/models/curie:ft-acmeco-2021-03-03-21-44-20 \
               -X DELETE \
-              -H "Authorization: Bearer $OPENAI_API_KEY"
+              -H "Authorization: Bearer $APACAI_API_KEY"
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.Model.delete("curie:ft-acmeco-2021-03-03-21-44-20")
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.deleteModel('curie:ft-acmeco-2021-03-03-21-44-20');
@@ -1517,21 +1517,21 @@ paths:
           curl: |
             curl https://api.apacai.com/v1/moderations \
               -H "Content-Type: application/json" \
-              -H "Authorization: Bearer $OPENAI_API_KEY" \
+              -H "Authorization: Bearer $APACAI_API_KEY" \
               -d '{
                 "input": "I want to kill them."
               }'
           python: |
             import os
             import apacai
-            apacai.api_key = os.getenv("OPENAI_API_KEY")
+            apacai.api_key = os.getenv("APACAI_API_KEY")
             apacai.Moderation.create(
               input="I want to kill them.",
             )
           node.js: |
             const { Configuration, ApacAIApi } = require("apacai");
             const configuration = new Configuration({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.APACAI_API_KEY,
             });
             const apacai = new ApacAIApi(configuration);
             const response = await apacai.createModeration({
